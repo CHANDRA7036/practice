@@ -2,6 +2,7 @@ let stockShirts;
 let stockPants;
 let stockShoes;
 
+// <please add comments here>
 function loadStock(shirts, pants, shoes) {
 
     if (typeof shirts != 'object') {
