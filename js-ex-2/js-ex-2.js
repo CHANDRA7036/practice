@@ -64,6 +64,7 @@ function purchase(shirts, pants, shoes, discount) {
     printBill(shirts, pants, shoes, discount);
 }
 
+// To display the purchased content.
 function printBill(purchasedShirts, purchasedPants, purchasedShoes, discount) {
 
     console.log('Purchased Stock');
@@ -93,6 +94,7 @@ function printBill(purchasedShirts, purchasedPants, purchasedShoes, discount) {
 
 }
 
+// Execution starts here.
 function init() {
     let shirts = {
         name: 'shirts',
