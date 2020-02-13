@@ -3,23 +3,30 @@ let stockPants;
 let stockShoes;
 
 // <please add comments here>
+
+let isLoaded = false;
+
 function loadStock(shirts, pants, shoes) {
 
     if (typeof shirts != 'object') {
         console.log('shirts is not a object');
         console.log('please enter  object');
+        isLoaded = true;
+
         return;
     }
 
     if (typeof pants != 'object') {
         console.log('pants is not object');
         console.log('please enter  object');
+        isLoaded = true;
         return;
     }
 
     if (typeof shoes != 'object') {
         console.log('shoes is not a object');
         console.log('please enter  object');
+        isLoaded = true;
         return;
     }
 
@@ -27,6 +34,7 @@ function loadStock(shirts, pants, shoes) {
     stockPants = pants;
     stockShoes = shoes;
 }
+
 
 function purchase(shirts, pants, shoes, discount) {
 
