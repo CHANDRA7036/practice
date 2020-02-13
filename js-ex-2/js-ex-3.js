@@ -1,7 +1,7 @@
 let stockShirts;
 let stockPants;
-
-/*************** validation of purchased object properties**********/
+let stockloadShirtsobj;
+let stockloadPantssobj;
 
 function isValidStockObject(purchaseObject) {
 
@@ -28,9 +28,38 @@ function isValidStockObject(purchaseObject) {
 
 function loadStock(shirts, pants) {
 
+    if (typeof shirts != 'object') {
+        console.log('shirts is not a array');
+        console.log('please enter  array');
+        return;
+    }
+    if (typeof pants != 'object') {
+        console.log('shirts is not a array');
+        console.log('please enter  array');
+        return;
+    }
 
     stockShirts = shirts;
     stockPants = pants;
+
+    let stockloadShirts;
+
+    for (let i = 0; i < stockShirts.length; i++) {
+        stockloadShirtsobj = stockShirts[i];
+        console.log(stockloadShirtsobj.quantity);
+        stockloadShirts = stockloadShirtsobj;
+    }
+    console.log(stockloadShirts);
+
+    let stockloadPants;
+
+    for (let i = 0; i < stockPants.length; i++) {
+        stockloadPantssobj = stockPants[i];
+        console.log(stockloadPantssobj.quantity);
+        stockloadPants = stockloadPantssobj;
+    }
+    console.log(stockloadPants);
+
 }
 
 /***********************Start purchase function***************************/
@@ -49,8 +78,78 @@ function purchase(purchaseShirts, purchasePants) {
         return;
     }
 
+
+    let displayShirtsObject;
+
+    for (let i = 0; i < stockShirts.length; i++) {
+        let currentobject = stockShirts[i];
+        console.log(currentobject.quantity);
+
+
+
+        if (purchaseShirts.color = currentobject.color) {
+            console.log('shirts color  avalialable');
+
+            if (purchaseShirts.quantity <= currentobject.quantity) {
+                console.log('shirts available');
+
+            } else {
+                console.log('shirts are not available');
+                return;
+            }
+        } else {
+            console.log('shirts color not available');
+        }
+        displayShirtsObject = purchaseShirts;
+        console.log(displayShirtsObject);
+
+
+    }
+
+    let displayPantsObject;
+
+    for (let i = 0; i < stockPants.length; i++) {
+        let currentobject = stockPants[i];
+        console.log(currentobject.quantity);
+
+
+        if (purchasePants.color = currentobject.color) {
+            console.log('pants color  avalialable');
+
+            if (purchasePants.quantity <= currentobject.quantity) {
+                console.log('pants available');
+
+            } else {
+                console.log('pants color not available');
+            }
+        } else {
+            console.log('pants are not available');
+        }
+        displayPantsObject;
+        console.log(displayPantsObject);
+
+    }
+
+    printBill(displayShirtsObject, displayPantsObject);
+
 }
 
+function printBill(shirtsParchase, pantsParchase) {
+
+    console.log('Purchased Stock');
+    // console.log('purchased shirts:' + shirtsParchase.quantity);
+    // console.log('purchased pants:' + pantsParchased.quantity);
+
+    console.log('Remaining quantity');
+    //console.log(`remaining stock ${stockloadPants.quantity-purchasedShirts}`);
+
+    console.log(`Remaining shirts: ${stockloadShirtsobj.quantity - shirtsParchase.quantity}`);
+    // console.log(`Remaining shirts: ${stockloadPantssobj.quantity - pantsParchase.quantity}`);
+
+
+
+
+}
 
 //***********************Start init function***************************//
 
@@ -75,8 +174,8 @@ function init() {
     let pants = [{
 
         price: 700,
-        quantity: 53,
-        color: 'blue'
+        quantity: 35,
+        color: 'black'
     }];
 
     isValidStockObject(shirtsobj);
