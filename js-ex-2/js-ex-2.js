@@ -2,7 +2,7 @@ let stockShirts;
 let stockPants;
 let stockShoes;
 
-// <please add comments here>
+/***********************Start LoadStock function***************************/
 
 let isLoaded = false;
 
@@ -26,7 +26,6 @@ function loadStock(shirts, pants, shoes) {
     if (typeof shoes != 'object') {
         console.log('shoes is not a object');
         console.log('please enter  object');
-        isLoaded = true;
         return;
     }
 
@@ -35,6 +34,10 @@ function loadStock(shirts, pants, shoes) {
     stockShoes = shoes;
 }
 
+/***********************end LoadStock function***************************/
+
+
+/***********************Start purchase function***************************/
 
 function purchase(shirts, pants, shoes, discount) {
 
@@ -73,7 +76,10 @@ function purchase(shirts, pants, shoes, discount) {
     printBill(shirts, pants, shoes, discount);
 }
 
-// To display the purchased content.
+/***********************End purchase function***************************/
+
+/***********************Start printBill function***************************/
+
 function printBill(purchasedShirts, purchasedPants, purchasedShoes, discount) {
 
     console.log('Purchased Stock');
@@ -103,7 +109,10 @@ function printBill(purchasedShirts, purchasedPants, purchasedShoes, discount) {
 
 }
 
-// Execution starts here.
+/***********************Start end printBill function***************************/
+
+/***********************Execution starts here***************************/
+
 function init() {
     let shirts = {
         name: 'shirts',
