@@ -34,7 +34,7 @@ function loadStock(shirts, pants, shoes) {
     stockShoes = shoes;
 }
 
-/***********************end LoadStock function***************************/
+/***********************End LoadStock function***************************/
 
 
 /***********************Start purchase function***************************/
