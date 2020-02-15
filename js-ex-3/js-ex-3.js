@@ -2,58 +2,42 @@ let stockShirts;
 let stockPants;
 let stockloadShirtsobj;
 let stockloadPantsobj;
+let purchaseObject;
 
 let isLoaded = false;
 
-function isValidStockObject(purchaseObject) {
+function isValidStockArray(stockObjectArray, type) {
 
     let isValid = true;
-    for (let i = 0; i < stockShirts.length; i++) {
-        let currentObject = stockShirts[i];
-
-        purchaseObject = currentObject;
+    for (let i = 0; i < stockObjectArray.length; i++) {
+        let currentObject = stockObjectArray[i];
 
 
-
-        if (typeof purchaseObject != 'object') {
-            console.log('enter object');
+        if (typeof currentObject != 'object') {
+            console.log(`${type} is not a Object`);
             isValid = false;
         }
 
-
-        if (isValid && typeof purchaseObject.quantity != 'number') {
-            console.log('please enter number');
+        if (isValid && typeof currentObject.quantity != 'number') {
+            console.log(`Quantity should be number in ${type}`);
             isValid = false;
         }
 
-        if (isValid && typeof purchaseObject.color != 'string') {
-            console.log('please enter string');
+        if (isValid && typeof currentObject.color != 'string') {
+            console.log(`Color should be number in ${type}`);
+            isValid = false;
+        }
+
+        if (isValid && typeof currentObject.price != 'number') {
+            console.log(`price should be number in ${type}`);
             isValid = false;
         }
     }
+
+
     return isValid;
 }
 
-function isvalidPurchase(purchasedObject) {
-    let isValid = true;
-
-    if (typeof purchasedObject != 'object') {
-        console.log('Enter Objects only');
-        isValid = false;
-    }
-
-    if (isValid && typeof purchasedObject.quantity != 'number') {
-        console.log('enter name as string only');
-        isValid = false;
-    }
-
-    if (isValid && typeof purchasedObject.color != 'string') {
-        console.log('enter numbers only');
-        isValid = false;
-    }
-
-    return isValid;
-}
 
 /***********************Start LoadStock function***************************/
 
@@ -61,19 +45,16 @@ function loadStock(shirts, pants) {
     stockShirts = shirts;
     stockPants = pants;
 
-    if (!isValidStockObject(shirts)) {
-        console.log('shirts is not a array');
-        console.log('please enter  array');
+    if (!isValidStockArray(shirts, 'Shirts')) {
+        console.log('Received invalid data for Shirts');
         isLoaded = true;
         return;
     }
-    if (!isValidStockObject(pants)) {
-        console.log('pants is not a array');
-        console.log('please enter  array');
+    if (!isValidStockArray(pants, 'Pants')) {
+        console.log('Received invalid data for Shirts');
         isLoaded = true;
         return;
     }
-
 
 }
 /***********************Start printBill function***************************/
@@ -107,13 +88,15 @@ function printBill(shirtsParchase, pantsParchase) {
 function purchase(purchaseShirts, purchasePants) {
 
     if (!isLoaded) {
-        if (!isvalidPurchase(purchaseShirts)) {
-            console.log('please enter  object');
+
+        if (!isValidStockArray(purchaseShirts, 'purchaseShirts')) {
+            console.log('Received invalid data for purchasedShirts');
+            isLoaded = true;
             return;
         }
-
-        if (!isvalidPurchase(purchasePants)) {
-            console.log('please enter  object');
+        if (!isValidStockArray(purchasePants, 'purchasePants')) {
+            console.log('Received invalid data for purchasePants');
+            isLoaded = true;
             return;
         }
 
@@ -163,13 +146,11 @@ function purchase(purchaseShirts, purchasePants) {
     }
 }
 
-
-
 //***********************Start init function***************************//
 
 function init() {
     let shirtsobj = {
-        quantity: 20,
+        quantity: 10,
         color: 'white'
     };
     let pantsobj = {
@@ -180,7 +161,7 @@ function init() {
 
     let shirts = [{
 
-        price: 500,
+        price: 1000,
         quantity: 70,
         color: 'white'
     }];
