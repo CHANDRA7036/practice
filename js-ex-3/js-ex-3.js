@@ -59,7 +59,7 @@ function loadStock(shirts, pants) {
 }
 /***********************Start printBill function***************************/
 
-function printBill(shirtsParchase, pantsParchase) {
+function printBill(shirtsParchase, pantsParchase, discount) {
 
     console.log('Purchased Stock');
 
@@ -76,16 +76,24 @@ function printBill(shirtsParchase, pantsParchase) {
     let shirtsPrice = shirtsParchase.quantity * stockloadShirtsobj.price;
     let pantsPrice = stockloadPantsobj.quantity * pantsParchase.quantity;
     let totalPrice = shirtsPrice + pantsPrice;
+    let discountPrice = (totalPrice * discount) / 100
+    let PayableAmount = totalPrice - discountPrice;
 
     console.log(`Shirts price: ${shirtsParchase.quantity*stockloadShirtsobj.price }`);
     console.log(`Shirts price: ${stockloadPantsobj.quantity*pantsParchase.quantity}`);
     console.log(`Toatal price:${totalPrice}`);
+    console.log(`Discount:${discountPrice}`);
+    console.log(`Payable Amount:${PayableAmount}`);
+
+
+
+
 
 }
 
 /***********************Start purchase function***************************/
 
-function purchase(purchaseShirts, purchasePants) {
+function purchase(purchaseShirts, purchasePants, discount) {
 
     if (!isLoaded) {
 
@@ -98,6 +106,11 @@ function purchase(purchaseShirts, purchasePants) {
             console.log('Received invalid data for purchasePants');
             isLoaded = true;
             return;
+        }
+        if (discount > 0 && discount <= 100) {
+
+            console.log('discount valid');
+
         }
 
         for (let i = 0; i < stockShirts.length; i++) {
@@ -139,7 +152,7 @@ function purchase(purchaseShirts, purchasePants) {
 
         }
 
-        printBill(purchaseShirts, purchasePants);
+        printBill(purchaseShirts, purchasePants, discount);
     } else {
         console.log('Issue with stock loading, Unable to process purchase');
 
@@ -155,7 +168,8 @@ function init() {
     };
     let pantsobj = {
         quantity: 30,
-        color: 'black'
+        color: 'black',
+
     };
 
 
@@ -163,7 +177,8 @@ function init() {
 
         price: 1000,
         quantity: 70,
-        color: 'white'
+        color: 'white',
+
     }];
 
     let pants = [{
@@ -174,7 +189,7 @@ function init() {
     }];
 
     loadStock(shirts, pants);
-    purchase(shirtsobj, pantsobj);
+    purchase(shirtsobj, pantsobj, 10);
 }
 
 init();
