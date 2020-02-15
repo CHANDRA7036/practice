@@ -145,9 +145,7 @@ function purchaseStock(purchaseShirts, purchasePants, discount) {
 
 function PrintBill(shirtPurchasedArray, pantsPurchasedArray, discount) {
 
-    // let shirtsStock;
-    // console.log(shirtsStock);
-
+    let shirtsStock = 0;
     for (let i = 0; i < shirtPurchasedArray.length; i++) {
         let purchsedShirtObject = shirtPurchasedArray[i];
 
@@ -157,7 +155,10 @@ function PrintBill(shirtPurchasedArray, pantsPurchasedArray, discount) {
         console.log(`Total Shirts Price:${shirtsPrice}`);
         shirtsStock = shirtsPrice;
     }
+    //console.log('total shirts ');
+    //console.log(shirtsStock);
 
+    let pantsStock = 0;
     for (let i = 0; i < pantsPurchasedArray.length; i++) {
         let purchsedPantObject = pantsPurchasedArray[i];
 
@@ -165,9 +166,21 @@ function PrintBill(shirtPurchasedArray, pantsPurchasedArray, discount) {
         console.log('Purchased Pants:' + purchsedPantObject.quantity);
         let pantsPrice = purchsedPantObject.quantity * purchsedPantObject.price;
         console.log(`Total Pants Price:${pantsPrice}`);
+        pantsStock += pantsPrice
 
     }
-    //console.log(`toatal ${shirtsPrice+pantsPrice}`);
+
+    let totalamount = shirtsStock + pantsStock;
+    let discountAmount = (totalamount * discount) / 100;
+    let payableAmount = totalamount - discountAmount;
+    console.log(`Toatal Amount ${totalamount}`);
+    console.log(`Discount Amount:${discountAmount}`);
+    console.log(`Payable Amount:${payableAmount}`);
+
+
+
+
+
 
 
     console.log('Remaing Stock');
