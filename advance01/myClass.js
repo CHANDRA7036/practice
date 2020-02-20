@@ -1,13 +1,13 @@
 class User {
-    constructor(firstname, middleName, lastname, credit) {
+    constructor(firstname, lastname, credit) {
         this.firstname = firstname;
-        this.middleName = middleName;
+
         this.lastname = lastname;
         this.credit = credit;
 
     }
     getFullName() {
-        let FullName = `${this.firstname} ${this.middleName}${this.lastname} this is full name`
+        let FullName = `${this.firstname} ${this.lastname} this is full name`;
         return FullName;
 
 
@@ -18,22 +18,26 @@ class User {
         this.lastname = myName[1];
 
     }
-    getMiddleName(middleName) {
-        const myName = middleName.split(" ");
-        this.firstname = myName[0];
-        this.middleName = myname[1]
-        this.lastname = myName[2]
+
+}
+class Teacher extends User {
+    constructor(firstname, lastname, credit, persentage) {
+        super(firstname, lastname, credit);
+        this.persentage = persentage;
+    }
+    getFullName() {
+        let FullName = `${this.firstname} ${this.lastname} this is full name and I got ${this.persentage}`;
+        return FullName;
     }
 
 }
 
-const john = new User('John', 'new', 'Anderson', 34);
+const john = new Teacher('John', 'Anderson', 34, 80);
 //console.log(john);
 console.log(john.getFullName());
-john.editName('chandrasekhar reddy');
-console.log(john);
 
-console.log(john.getFullName());
+
+
 
 
 
