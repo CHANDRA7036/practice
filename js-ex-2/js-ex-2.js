@@ -12,7 +12,6 @@ function loadStock(shirts, pants, shoes) {
         console.log('shirts is not a object');
         console.log('please enter  object');
         isLoaded = true;
-
         return;
     }
 
@@ -26,6 +25,7 @@ function loadStock(shirts, pants, shoes) {
     if (typeof shoes != 'object') {
         console.log('shoes is not a object');
         console.log('please enter  object');
+        isLoaded = true;
         return;
     }
 
@@ -41,39 +41,43 @@ function loadStock(shirts, pants, shoes) {
 
 function purchase(shirts, pants, shoes, discount) {
 
-    if (typeof discount != 'number') {
-        console.log('please enter number');
-        return;
-    }
+    if (!isLoaded) {
+        if (typeof discount != 'number') {
+            console.log('please enter number');
+            return;
+        }
 
-    if (shirts <= stockShirts.quantity) {
-        console.log('shirts are available');
+        if (shirts <= stockShirts.quantity) {
+            console.log('shirts are available');
+        } else {
+            console.log('shirts are not available');
+            return;
+        }
+
+        if (pants <= stockPants.quantity) {
+            console.log('pants are available');
+        } else {
+            console.log('pants are not available');
+            return;
+        }
+
+        if (shoes <= stockShoes.quantity) {
+            console.log('shoes are available');
+        } else {
+            console.log('shoes are not available');
+            return;
+        }
+
+        if (discount > 0 && discount <= 100) {
+
+            console.log('discount valid');
+
+        }
+
+        printBill(shirts, pants, shoes, discount);
     } else {
-        console.log('shirts are not available');
-        return;
+        console.log('Issue with stock loading, Unable to process purchase');
     }
-
-    if (pants <= stockPants.quantity) {
-        console.log('pants are available');
-    } else {
-        console.log('pants are not available');
-        return;
-    }
-
-    if (shoes <= stockShoes.quantity) {
-        console.log('shoes are available');
-    } else {
-        console.log('shoes are not available');
-        return;
-    }
-
-    if (discount > 0 && discount <= 100) {
-
-        console.log('discount valid');
-
-    }
-
-    printBill(shirts, pants, shoes, discount);
 }
 
 /***********************End purchase function***************************/

@@ -74,7 +74,6 @@ function purchaseStock(purchaseShirts, purchasePants, discount) {
     if (discount > 0 && discount <= 100) {
 
         console.log('discount valid');
-
     }
 
     let shirtPurchasedArray = [];
@@ -95,9 +94,6 @@ function purchaseStock(purchaseShirts, purchasePants, discount) {
                     shirtPurchasedArray.push(shirtPurchaseObject);
 
                     shirtStockObject.quantity = shirtStockObject.quantity - shirtPurchaseObject.quantity;
-
-
-
                     stockShirts[i] = shirtStockObject;
                 } else {
                     console.log('Shirts are not Available');
@@ -106,7 +102,6 @@ function purchaseStock(purchaseShirts, purchasePants, discount) {
             } else {
                 console.log('Shirts color not Available');
             }
-
         }
     }
 
@@ -176,12 +171,6 @@ function PrintBill(shirtPurchasedArray, pantsPurchasedArray, discount) {
     console.log(`Toatal Amount ${totalamount}`);
     console.log(`Discount Amount:${discountAmount}`);
     console.log(`Payable Amount:${payableAmount}`);
-
-
-
-
-
-
 
     console.log('Remaing Stock');
 
