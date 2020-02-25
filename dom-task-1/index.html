@@ -12,15 +12,20 @@
 
     <div class="container">
         <h1>Numbers</h1>
-        <p id="demo"> </p>
 
-        <input type="radio" id="checkOne" onclick="odd();">OddNumbers
-        <input type="radio" id="checkTwo" onclick="even();"> EvenNumbers
-        <input type="radio" id="checkTree" onclick="reset();">Reset
+        <input type="radio" class="checkReset" onclick="main(this);">Reset
+
         <ul id="myList">
-            <li id='Odd' style="border:2px solid red;"></li>
-            <li id='Even' style="border:2px solid green;"></li>
-            </li>
+            <li class="odd"><a onclick="main(this)">one</a></li>
+            <li class="even"><a onclick="main(this)">two</a></li>
+            <li class="odd"><a onclick="main(this)">tree</a></li>
+            <li class="even"><a onclick="main(this)">four</a></li>
+            <li class="odd"><a onclick="main(this)">five</a></li>
+            <li class="even"><a onclick="main(this)">six</a></li>
+            <li class="odd"><a onclick="main(this)">seven</a></li>
+            <li class="even"><a onclick="main(this)">eight</a></li>
+            <li class="odd"><a onclick="main(this)">nine</a></li>
+            <li class="even"><a onclick="main(this)">ten</a></li>
         </ul>
     </div>
     <script src="script.js"></script>
