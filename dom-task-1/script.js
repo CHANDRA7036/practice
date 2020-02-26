@@ -1,24 +1,17 @@
 function main(e) {
     console.log(e);
-
-    // var x = e.odd;
-    var cname = e.getAttribute('class')
-    document.querySelector(cname);
-    console.log();
-
-
-    for (i = 0; i < e.length; i++) {
-        e[i].style.backgroundColor = "green";
+    var cname = e.parentElement.getAttribute("class");
+    var a = document.querySelectorAll("." + cname);
+    for (i = 0; i < a.length; i++) {
+        if (cname == "odd") {
+            a[i].style.color = "red";
+        } else {
+            a[i].style.color = "blue";
+        }
     }
+    // document.querySelector("#myList").style.color = "none";
 }
 
-
-
-// function main(e) {
-//       var x = document.getElementsByClassName("odd");
-
-//       var i;
-//       for (i = 0; i < x.length; i++) {
-//         y[i].style.backgroundColor = "green";
-//       }
-//     }
+function myFunction() {
+    document.querySelector(".myList").style.Color = "none";
+}
