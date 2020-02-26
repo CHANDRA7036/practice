@@ -1,0 +1,9 @@
+.even {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.odd {
+    border: 1px solid red;
+    margin: 5px;
+}
