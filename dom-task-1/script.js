@@ -1,17 +1,34 @@
 function main(e) {
-    console.log(e);
     var cname = e.parentElement.getAttribute("class");
     var a = document.querySelectorAll("." + cname);
-    for (i = 0; i < a.length; i++) {
+    for (let i = 0; i < a.length; i++) {
         if (cname == "odd") {
             a[i].style.color = "red";
         } else {
             a[i].style.color = "blue";
         }
     }
-    // document.querySelector("#myList").style.color = "none";
+    // for (let i = 0; i < a.length; i++) {
+    //     if (cname == "odd") {
+    //         a[i].style.color = "red";
+    //     } else if(cname == "even") {
+    //         a[i].style.color = "green";
+    //     }
+    // }
+    // for (let i = 0; i < a.length; i++) {
+    //     if (cname == "even") {
+
+    //         a[i].style.color = "black";
+    //     } else {
+    //         a[i].style.color = "black";
+    //     }
+    // }
 }
 
-function myFunction() {
-    document.querySelector(".myList").style.Color = "none";
+function resetButton() {
+    var b = document.querySelectorAll("#myList li");
+    // console.log(b);
+    for (let j = 0; j < b.length; j++) {
+        b[j].style.color = "black";
+    }
 }
