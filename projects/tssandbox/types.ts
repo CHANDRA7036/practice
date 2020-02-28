@@ -11,8 +11,6 @@ let strArr:Array<string>;
 let boolArr:Array<boolean>;
 let numArr:Array<number>;
 
-
-
 boolArr=[true,false,false,true];
 strArr=["chandra","vinay","nexgdata"];
 numArr=[1,2,3,4.,3];
@@ -29,11 +27,6 @@ let myVoid:void=undefined;
 let myNull:null=null;
 let myUndifined=undefined;
 console.log(myUndifined);
-
-
-
-
-
 
 // console.log(boolean);
 // console.log(strArr);
