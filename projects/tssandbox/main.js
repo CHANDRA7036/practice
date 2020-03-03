@@ -1,12 +1,12 @@
-// class Animal{
-//     name:string;
-//     constructor(theName:string){
-//         this.name=theName;
-//     }
-//     walk(distance:number){
-//         console.log("Hi, my name is "+ this.name +" and i am walking "+distance+ "meaters");
-//           }
-// }
+var Animal = /** @class */ (function () {
+    function Animal(theName) {
+        this.name = theName;
+    }
+    Animal.prototype.walk = function (distance) {
+        console.log("Hi, my name is " + this.name + " and i am walking " + distance + "meaters");
+    };
+    return Animal;
+}());
 // let myAnimal=new Animal("dave");
 // myAnimal.walk(10);
 // class Snake{
@@ -17,22 +17,22 @@
 //         console.log("snakes dont really walk");        
 //     }
 // }
-// var fn=()=>'response';
-// let a: number;
-// let b: boolean;
-// let c: string;
-// a = 10;
-// b = true;
-// c = 'hello';
-// let myarray:number[];
-// myarray=[];
-// myarray=[1,1,2,3,5];
-// myarray.push(1);
+var fn = function () { return 'response'; };
+var a;
+var b;
+var c;
+a = 10;
+b = true;
+c = 'hello';
+var myarray;
+myarray = [];
+myarray = [1, 1, 2, 3, 5];
+myarray.push(1);
 //tuple
-// let myArr:[number,boolean];
-// myArr=[1,true];
-// myArr=[188,false];
+var myArr;
+myArr = [1, true];
+myArr = [188, false];
 function sum(x, y) {
     return x + y;
 }
-var Addition = sum(10, 20); // Correct  
+var Addition = sum(10, 20);

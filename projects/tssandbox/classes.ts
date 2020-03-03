@@ -1,63 +1,63 @@
-// interface UserInterface{
-//     name:string;
-//     email:string;
-//     age:number;
-//     register();
-//     payInvoice();
-// }
+interface UserInterface {
+    name: string;
+    email: string;
+    age: number;
+    register();
+    payInvoice();
+}
 
-// class User{
-//  name:string;
-//  email:string;
-//     age:number;
+class User {
+    name: string;
+    email: string;
+    age: number;
 
-//     constructor(name:string,email:string,age:number){
-//         this.name=name;
-//         this.email=email;
-//         this.age=age;
-//         console.log("user:"+this.name);
-//     } 
-    
-//     register(){
-//         console.log(this.name + 'is now registered');       
-//     }
-//     payInvoice(){
-//         console.log(this.name+ 'paide invoice member');
-        
-//     }
-// }
+    constructor(name: string, email: string, age: number) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        console.log("user:" + this.name);
+    }
 
-// class Member extends User{
-//     id:number;
+    register() {
+        console.log(this.name + 'is now registered');
+    }
+    payInvoice() {
+        console.log(this.name + 'paide invoice member');
 
-//     constructor(id:number,name:string,email:string,age:number){
-//         super(name,email,age);
-//         this.id=id;
-//     }
-    
-//     payInvoice(){
-//         super.payInvoice();
-//     }
-// }
+    }
+}
 
+class Member extends User {
+    id: number;
 
-// // let john=new User('John Doe','jde@gmail.com',30);
-// // // console.log(john.age);
+    constructor(id: number, name: string, email: string, age: number) {
+        super(name, email, age);
+        this.id = id;
+    }
 
-// // john.register();
-
-// let mike: User=new Member(1,'Mike Smith','mikesmith@gmai.com',20);
-// mike.payInvoice();
+    payInvoice() {
+        super.payInvoice();
+    }
+}
 
 
+// let john=new User('John Doe','jde@gmail.com',30);
+// // console.log(john.age);
 
-class Student {  
-    public studCode: number;  
-    studName: string;  
-}  
-  
-let stud = new Student();  
-stud.studCode = 101;  
-stud.studName = "Joe Root";  
-  
-console.log(stud.studCode+ " "+stud.studName);  
+// john.register();
+
+let mike: User = new Member(1, 'Mike Smith', 'mikesmith@gmai.com', 20);
+mike.payInvoice();
+
+
+
+// class Student {  
+//     public studCode: number;  
+//     studName: string;  
+// }  
+
+// let stud = new Student();  
+// stud.studCode = 101;  
+// stud.studName = "Joe Root";  
+
+// console.log(stud.studCode+ " "+stud.studName);  
